@@ -623,10 +623,10 @@ class StatementNode(LayoutNode):
           and self._wrap.value > WrapAlgo.VPACK.value):
       column_cursor[0] += 1
       cursor = Cursor(*column_cursor)
-    elif prev.type == NodeType.COMMENT:
+    elif prev and prev.type == NodeType.COMMENT:
       column_cursor[0] += 1
       cursor = Cursor(*column_cursor)
-    elif prev.has_terminal_comment():
+    elif prev and prev.has_terminal_comment():
       column_cursor[0] += 1
       cursor = Cursor(*column_cursor)
 
